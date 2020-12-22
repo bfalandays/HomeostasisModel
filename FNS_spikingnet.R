@@ -79,7 +79,7 @@ for(i in 1:(iterations+4)){ # we have i iterations of training + 4 iterations wi
   prev_spikes = spikes #save the last spike pattern across all nodes
 
   #get the current activations
-  if(i > iterations){ # if we are in the last 12 iterations, we turn off the inputs
+  if(i > iterations){ # if we are in the last 4 iterations, we turn off the inputs
     act= dot(spikes,wmat) 
     
     # can uncomment the below line if we also want to turn off learning during the test phase
@@ -94,13 +94,13 @@ for(i in 1:(iterations+4)){ # we have i iterations of training + 4 iterations wi
 
   errors=rbind(errors,cbind(mean(error),sd(error))) #save errors
   
-  if( i <= 1000){ #save the first 12 iterations of data
+  if( i <= 1000){ #save the first 1K iterations of data
     start_spikes=rbind(start_spikes,spikes)
     start_act=rbind(start_act,act)
     start_target=rbind(start_target,target)
     start_stream=rbind(start_stream,cbind(word=names(inputs)[input_id],i=i))
   }
-  if( i > iterations-1000){ # save the last 12 iterations of data
+  if( i > iterations-1000){ # save the last 1K iterations of data
     end_spikes=rbind(end_spikes,spikes)
     end_act=rbind(end_act,act)
     end_target=rbind(end_target,target)
