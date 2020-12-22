@@ -67,8 +67,8 @@ end_stream=c() #this saves the inputs
 
 errors=c()
 
-#choose a random first input from the vocab
-input_id=sample(seq(1:length(inputs)),1)
+#grab the first input ('a' by default, but uncomment below to start with a random choice)
+input_id=1 # sample(seq(1:length(inputs)),1)
 input=inputs[[input_id]]
 
 learning=1 # set this to optionally turn off learning during the test phase
